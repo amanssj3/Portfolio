@@ -68,23 +68,23 @@ const App = () => {
       <main className="relative z-10">
         
         {/* HERO SECTION */}
-        <section className="min-h-screen flex items-center justify-center px-4 md:px-6 pt-20">
+        <section className="flex items-center justify-start px-4 md:px-6 pt-32 pb-16 md:pt-48 md:pb-24 max-w-7xl mx-auto w-full">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl"
+            className="text-left max-w-4xl w-full"
           >
             <h2 className="text-primary font-mono mb-4 text-base md:text-lg">&gt; Hello, I am</h2>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6">Aman <span className="text-transparent border-text" style={{ WebkitTextStroke: '2px #00f5d4' }}>Qureshi</span></h1>
-            <p className="text-gray-400 text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 max-w-2xl mx-auto font-sans leading-relaxed px-4 md:px-0">
+            <p className="text-gray-400 text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 max-w-2xl font-sans leading-relaxed px-4 sm:px-0">
               Lead Unity Developer crafting polished multiplayer, AR/VR, and cross-platform experiences. Building the future of interactive entertainment.
             </p>
-            <div className="flex gap-4 md:gap-6 justify-center flex-col sm:flex-row px-6 sm:px-0">
-              <a href="#projects" className="px-6 py-3 md:px-8 md:py-4 bg-primary text-dark font-bold rounded hover:shadow-[0_0_20px_rgba(0,245,212,0.6)] transition-all">
+            <div className="flex gap-4 md:gap-6 justify-start flex-col sm:flex-row px-4 sm:px-0">
+              <a href="#projects" className="px-6 py-3 md:px-8 md:py-4 bg-primary text-dark font-bold rounded hover:shadow-[0_0_20px_rgba(0,245,212,0.6)] transition-all max-w-max text-center">
                 View My Projects
               </a>
-              <a href="#contact" className="px-6 py-3 md:px-8 md:py-4 border border-gray-600 text-white hover:border-primary hover:text-primary transition-all rounded">
+              <a href="#contact" className="px-6 py-3 md:px-8 md:py-4 border border-gray-600 text-white hover:border-primary hover:text-primary transition-all rounded max-w-max text-center">
                 Get In Touch
               </a>
             </div>
@@ -133,9 +133,9 @@ const App = () => {
 
         {/* SKILLS */}
         <section id="skills" className="py-16 md:py-24 max-w-7xl mx-auto px-4 md:px-6">
-          <div className="flex items-center justify-center gap-2 md:gap-3 mb-12 md:mb-16">
-            <Cpu className="text-secondary w-6 h-6 md:w-8 md:h-8 flex-shrink-0" />
-            <h2 className="text-3xl md:text-4xl font-serif text-white uppercase glow-text">Technical Arsenal</h2>
+          <div className="flex items-center justify-start gap-4 mb-12 md:mb-16">
+            <Cpu className="text-secondary w-6 h-6 md:w-8 md:h-8" />
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-white uppercase glow-text whitespace-nowrap">Technical Arsenal</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {[
@@ -262,9 +262,9 @@ const App = () => {
             Portfolio
           </div>
           <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
-             <div className="flex items-center justify-center gap-2 md:gap-3 mb-12 md:mb-16">
-              <Gamepad2 className="text-secondary w-6 h-6 md:w-8 md:h-8 flex-shrink-0" />
-              <h2 className="text-3xl md:text-4xl font-serif text-white uppercase glow-text">Featured Projects</h2>
+             <div className="flex items-center justify-start gap-4 mb-12 md:mb-16">
+              <Gamepad2 className="text-secondary w-6 h-6 md:w-8 md:h-8" />
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-white uppercase glow-text whitespace-nowrap">Featured Projects</h2>
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
@@ -306,12 +306,12 @@ const App = () => {
         </section>
 
         {/* CONTACT */}
-        <section id="contact" className="py-16 md:py-24 px-4 md:px-6 pb-24 md:pb-32">
-          <div className="max-w-4xl mx-auto text-center">
+        <section id="contact" className="py-16 md:py-24 px-4 md:px-6 pb-24 md:pb-32 max-w-7xl mx-auto">
+          <div className="max-w-4xl text-left">
             <h2 className="text-4xl md:text-5xl font-serif text-white uppercase mb-6 md:mb-8">Let's Connect</h2>
             <p className="text-lg md:text-xl text-gray-400 mb-8 md:mb-12">Based in Ahmedabad, India. Open to discussing high-end AR/VR, dynamic architecture, and fresh multiplayer challenges anywhere.</p>
             
-            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 md:gap-6">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-start gap-4 md:gap-6">
               <a href="mailto:aman0074ssj@gmail.com" className="flex items-center justify-center gap-3 px-6 py-3 md:px-8 md:py-4 glass hover:bg-white/10 hover:-translate-y-1 transition-all rounded-full border border-gray-800 hover:border-primary text-gray-300 w-full sm:w-auto">
                 <Mail className="text-primary"/> aman0074ssj@gmail.com
               </a>
