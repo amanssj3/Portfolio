@@ -133,8 +133,8 @@ const App = () => {
 
         {/* SKILLS */}
         <section id="skills" className="py-16 md:py-24 max-w-7xl mx-auto px-4 md:px-6">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 md:mb-16">
-            <Cpu className="text-secondary w-6 h-6 md:w-8 md:h-8" />
+          <div className="flex items-center justify-center gap-3 md:gap-4 mb-12 md:mb-16">
+            <Cpu className="text-secondary w-8 h-8 md:w-8 md:h-8" />
             <h2 className="text-3xl md:text-4xl font-serif text-white uppercase glow-text text-center">Technical Arsenal</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
@@ -262,8 +262,8 @@ const App = () => {
             Portfolio
           </div>
           <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
-             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 md:mb-16">
-              <Gamepad2 className="text-secondary w-6 h-6 md:w-8 md:h-8" />
+             <div className="flex items-center justify-center gap-3 md:gap-4 mb-12 md:mb-16">
+              <Gamepad2 className="text-secondary w-8 h-8 md:w-8 md:h-8" />
               <h2 className="text-3xl md:text-4xl font-serif text-white uppercase glow-text text-center">Featured Projects</h2>
             </div>
             
