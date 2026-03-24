@@ -1,10 +1,13 @@
-import { motion } from 'framer-motion';
-import { Mail, Phone, ExternalLink, Download, Code, Gamepad2, Shield, User, Briefcase, GraduationCap, Cpu, Globe } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Mail, Phone, ExternalLink, Download, Code, Gamepad2, Shield, User, Briefcase, GraduationCap, Cpu, Globe, Menu, X } from 'lucide-react';
 import CustomCursor from './CustomCursor';
 
 const resumeUrl = "/AmanQureshi_DEV_TL_PM_CH.pdf";
 
 const App = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen relative overflow-hidden bg-[#050510]">
       <CustomCursor />
@@ -16,8 +19,10 @@ const App = () => {
       </div>
 
       <nav className="fixed top-0 w-full glass z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
           <h1 className="text-xl font-bold text-white tracking-widest uppercase glow-text">AMAN Q.</h1>
+          
+          {/* Desktop Nav */}
           <div className="hidden md:flex gap-6 items-center">
             <a href="#about" className="text-gray-400 hover:text-primary transition-colors">About</a>
             <a href="#skills" className="text-gray-400 hover:text-primary transition-colors">Skills</a>
@@ -27,29 +32,59 @@ const App = () => {
               Resume
             </a>
           </div>
+
+          {/* Mobile Menu Toggle */}
+          <button 
+            className="md:hidden text-white hover:text-primary transition-colors p-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
         </div>
+
+        {/* Mobile Nav */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="md:hidden glass border-t border-gray-800 overflow-hidden"
+            >
+              <div className="flex flex-col items-center gap-6 py-8 px-4">
+                <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-200 text-lg hover:text-primary transition-colors">About</a>
+                <a href="#skills" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-200 text-lg hover:text-primary transition-colors">Skills</a>
+                <a href="#experience" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-200 text-lg hover:text-primary transition-colors">Experience</a>
+                <a href="#projects" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-200 text-lg hover:text-primary transition-colors">Projects</a>
+                <a href={resumeUrl} onClick={() => setIsMobileMenuOpen(false)} download className="px-8 py-3 w-full max-w-[200px] text-center border border-primary text-primary hover:bg-primary/20 transition-all rounded glow-box">
+                  Resume
+                </a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
 
       <main className="relative z-10">
         
         {/* HERO SECTION */}
-        <section className="min-h-screen flex items-center justify-center px-6 pt-20">
+        <section className="min-h-screen flex items-center justify-center px-4 md:px-6 pt-20">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center max-w-4xl"
           >
-            <h2 className="text-primary font-mono mb-4 text-lg">&gt; Hello, I am</h2>
-            <h1 className="text-6xl md:text-8xl font-serif font-bold text-white mb-6">Aman <span className="text-transparent border-text" style={{ WebkitTextStroke: '2px #00f5d4' }}>Qureshi</span></h1>
-            <p className="text-gray-400 text-xl md:text-2xl mb-12 max-w-2xl mx-auto font-sans leading-relaxed">
+            <h2 className="text-primary font-mono mb-4 text-base md:text-lg">&gt; Hello, I am</h2>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6">Aman <span className="text-transparent border-text" style={{ WebkitTextStroke: '2px #00f5d4' }}>Qureshi</span></h1>
+            <p className="text-gray-400 text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 max-w-2xl mx-auto font-sans leading-relaxed px-4 md:px-0">
               Lead Unity Developer crafting polished multiplayer, AR/VR, and cross-platform experiences. Building the future of interactive entertainment.
             </p>
-            <div className="flex gap-6 justify-center flex-wrap">
-              <a href="#projects" className="px-8 py-4 bg-primary text-dark font-bold rounded hover:shadow-[0_0_20px_rgba(0,245,212,0.6)] transition-all">
+            <div className="flex gap-4 md:gap-6 justify-center flex-col sm:flex-row px-6 sm:px-0">
+              <a href="#projects" className="px-6 py-3 md:px-8 md:py-4 bg-primary text-dark font-bold rounded hover:shadow-[0_0_20px_rgba(0,245,212,0.6)] transition-all">
                 View My Projects
               </a>
-              <a href="#contact" className="px-8 py-4 border border-gray-600 text-white hover:border-primary hover:text-primary transition-all rounded">
+              <a href="#contact" className="px-6 py-3 md:px-8 md:py-4 border border-gray-600 text-white hover:border-primary hover:text-primary transition-all rounded">
                 Get In Touch
               </a>
             </div>
@@ -57,11 +92,11 @@ const App = () => {
         </section>
 
         {/* ABOUT & QUICK INFO */}
-        <section id="about" className="py-24 px-6 max-w-7xl mx-auto flex flex-col md:flex-row gap-16">
+        <section id="about" className="py-16 md:py-24 px-4 md:px-6 max-w-7xl mx-auto flex flex-col md:flex-row gap-8 md:gap-16">
           <div className="flex-1 space-y-6">
-            <div className="flex items-center gap-4 mb-8">
-              <User className="text-secondary w-8 h-8" />
-              <h2 className="text-4xl font-serif text-white uppercase glow-text">Profile</h2>
+            <div className="flex items-center gap-4 mb-6 md:mb-8">
+              <User className="text-secondary w-6 h-6 md:w-8 md:h-8" />
+              <h2 className="text-3xl md:text-4xl font-serif text-white uppercase glow-text">Profile</h2>
             </div>
             <p className="text-lg text-gray-400 leading-relaxed">
               I'm a <span className="text-primary glow-text">Lead Unity Developer</span> with over 8 years of hands-on experience creating polished multiplayer and cross-platform games. I architect real-time reliable systems using tools like Photon, Mirror, and Fish Networking.
@@ -97,12 +132,12 @@ const App = () => {
         </section>
 
         {/* SKILLS */}
-        <section id="skills" className="py-24 max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-center gap-4 mb-16">
-            <Cpu className="text-secondary w-8 h-8" />
-            <h2 className="text-4xl font-serif text-white uppercase glow-text text-center">Technical Arsenal</h2>
+        <section id="skills" className="py-16 md:py-24 max-w-7xl mx-auto px-4 md:px-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 md:mb-16">
+            <Cpu className="text-secondary w-6 h-6 md:w-8 md:h-8" />
+            <h2 className="text-3xl md:text-4xl font-serif text-white uppercase glow-text text-center">Technical Arsenal</h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {[
               { title: "Languages", icon: "💻", items: ["C#", "C/C++", "Java", "PHP", "Node.js"] },
               { title: "Engines & Tools", icon: "⚙️", items: ["Unity", "Unreal Engine", "Maya", "Photoshop", "JSON", "XML"] },
@@ -125,13 +160,13 @@ const App = () => {
         </section>
 
         {/* EXPERIENCE & EDUCATION */}
-        <section id="experience" className="py-24 px-6 max-w-7xl mx-auto flex flex-col lg:flex-row gap-16">
+        <section id="experience" className="py-16 md:py-24 px-4 md:px-6 max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 md:gap-16">
           <div className="flex-[2]">
-            <div className="flex items-center gap-4 mb-12">
-              <Briefcase className="text-secondary w-8 h-8" />
-              <h2 className="text-4xl font-serif text-white uppercase glow-text">Experience</h2>
+            <div className="flex items-center gap-4 mb-8 md:mb-12">
+              <Briefcase className="text-secondary w-6 h-6 md:w-8 md:h-8" />
+              <h2 className="text-3xl md:text-4xl font-serif text-white uppercase glow-text">Experience</h2>
             </div>
-            <div className="space-y-8">
+            <div className="space-y-6 md:space-y-8">
               {[
                 {
                   role: "Team Lead / Sr. Unity Game Developer",
@@ -199,12 +234,12 @@ const App = () => {
             </div>
           </div>
 
-          <div className="flex-1">
-            <div className="flex items-center gap-4 mb-12">
-              <GraduationCap className="text-secondary w-8 h-8" />
-              <h2 className="text-4xl font-serif text-white uppercase glow-text">Education</h2>
+          <div className="flex-1 mt-12 lg:mt-0">
+            <div className="flex items-center gap-4 mb-8 md:mb-12">
+              <GraduationCap className="text-secondary w-6 h-6 md:w-8 md:h-8" />
+              <h2 className="text-3xl md:text-4xl font-serif text-white uppercase glow-text">Education</h2>
             </div>
-            <div className="space-y-6">
+            <div className="space-y-4 md:space-y-6">
               {[
                 { degree: "Master of Computer Application (MCA)", school: "L.j Institute / Gujarat Tech. University", year: "2014 — 2016" },
                 { degree: "Bachelor of Computer Application (BCA)", school: "Sarvoday College / Saurashtra Univ.", year: "2011 — 2014" },
@@ -222,17 +257,17 @@ const App = () => {
         </section>
 
         {/* PROJECTS */}
-        <section id="projects" className="py-24 relative overflow-hidden">
+        <section id="projects" className="py-16 md:py-24 relative overflow-hidden">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] font-serif font-black opacity-[0.03] pointer-events-none uppercase whitespace-nowrap z-0">
             Portfolio
           </div>
-          <div className="max-w-7xl mx-auto px-6 relative z-10">
-             <div className="flex items-center justify-center gap-4 mb-16">
-              <Gamepad2 className="text-secondary w-8 h-8" />
-              <h2 className="text-4xl font-serif text-white uppercase glow-text text-center">Featured Projects</h2>
+          <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 md:mb-16">
+              <Gamepad2 className="text-secondary w-6 h-6 md:w-8 md:h-8" />
+              <h2 className="text-3xl md:text-4xl font-serif text-white uppercase glow-text text-center">Featured Projects</h2>
             </div>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {[
                 { title: "8 Ball Pool Multiplayer", client: "3Plus Games", url: "https://www.3plusgames.com" },
                 { title: "Kalash Nikavo (Mini Militia)", client: "3Plus Games", url: "https://www.3plusgames.com" },
@@ -271,19 +306,19 @@ const App = () => {
         </section>
 
         {/* CONTACT */}
-        <section id="contact" className="py-24 px-6 pb-32">
+        <section id="contact" className="py-16 md:py-24 px-4 md:px-6 pb-24 md:pb-32">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-5xl font-serif text-white uppercase mb-8">Let's Connect</h2>
-            <p className="text-xl text-gray-400 mb-12">Based in Ahmedabad, India. Open to discussing high-end AR/VR, dynamic architecture, and fresh multiplayer challenges anywhere.</p>
+            <h2 className="text-4xl md:text-5xl font-serif text-white uppercase mb-6 md:mb-8">Let's Connect</h2>
+            <p className="text-lg md:text-xl text-gray-400 mb-8 md:mb-12">Based in Ahmedabad, India. Open to discussing high-end AR/VR, dynamic architecture, and fresh multiplayer challenges anywhere.</p>
             
-            <div className="flex flex-wrap justify-center gap-6">
-              <a href="mailto:aman0074ssj@gmail.com" className="flex items-center gap-3 px-8 py-4 glass hover:bg-white/10 hover:-translate-y-1 transition-all rounded-full border border-gray-800 hover:border-primary text-gray-300">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 md:gap-6">
+              <a href="mailto:aman0074ssj@gmail.com" className="flex items-center justify-center gap-3 px-6 py-3 md:px-8 md:py-4 glass hover:bg-white/10 hover:-translate-y-1 transition-all rounded-full border border-gray-800 hover:border-primary text-gray-300 w-full sm:w-auto">
                 <Mail className="text-primary"/> aman0074ssj@gmail.com
               </a>
-              <a href="tel:+917405315414" className="flex items-center gap-3 px-8 py-4 glass hover:bg-white/10 hover:-translate-y-1 transition-all rounded-full border border-gray-800 hover:border-primary text-gray-300">
+              <a href="tel:+917405315414" className="flex items-center justify-center gap-3 px-6 py-3 md:px-8 md:py-4 glass hover:bg-white/10 hover:-translate-y-1 transition-all rounded-full border border-gray-800 hover:border-primary text-gray-300 w-full sm:w-auto">
                 <Phone className="text-primary"/> +91 7405315414
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="flex items-center gap-3 px-8 py-4 glass hover:bg-white/10 hover:-translate-y-1 transition-all rounded-full border border-gray-800 hover:border-primary text-gray-300">
+              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-3 px-6 py-3 md:px-8 md:py-4 glass hover:bg-white/10 hover:-translate-y-1 transition-all rounded-full border border-gray-800 hover:border-primary text-gray-300 w-full sm:w-auto">
                 <Globe className="text-primary"/> LinkedIn Profile
               </a>
             </div>
