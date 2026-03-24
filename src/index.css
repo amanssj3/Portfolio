@@ -35,3 +35,9 @@
   background: #00f5d4;
   border-radius: 4px;
 }
+
+@media (hover: hover) and (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}

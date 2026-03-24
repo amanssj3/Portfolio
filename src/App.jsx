@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion';
 import { Mail, Phone, ExternalLink, Download, Code, Gamepad2, Shield, User, Briefcase, GraduationCap, Cpu, Globe } from 'lucide-react';
+import CustomCursor from './CustomCursor';
 
 const resumeUrl = "/AmanQureshi_DEV_TL_PM_CH.pdf";
 
 const App = () => {
   return (
     <div className="min-h-screen relative overflow-hidden bg-[#050510]">
+      <CustomCursor />
       {/* Background neon grid/gradients */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 blur-[100px] rounded-full" />
