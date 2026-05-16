@@ -78,7 +78,7 @@ const App = () => {
             <h2 className="text-primary font-mono mb-4 text-base md:text-lg">&gt; Hello, I am</h2>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6">Aman <span className="text-transparent border-text" style={{ WebkitTextStroke: '2px #00f5d4' }}>Qureshi</span></h1>
             <p className="text-gray-400 text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 max-w-2xl font-sans leading-relaxed px-4 sm:px-0">
-              Lead Unity Developer crafting polished multiplayer, AR/VR, and cross-platform experiences. Building the future of interactive entertainment.
+              Technical Architect & Lead Developer crafting AI-driven 3D infrastructure, full-stack web platforms, and immersive XR experiences.
             </p>
             <div className="flex gap-4 md:gap-6 justify-start flex-col sm:flex-row px-4 sm:px-0">
               <a href="#projects" className="px-6 py-3 md:px-8 md:py-4 bg-primary text-dark font-bold rounded hover:shadow-[0_0_20px_rgba(0,245,212,0.6)] transition-all max-w-max text-center">
@@ -99,13 +99,13 @@ const App = () => {
               <h2 className="text-3xl md:text-4xl font-serif text-white uppercase glow-text">Profile</h2>
             </div>
             <p className="text-lg text-gray-400 leading-relaxed">
-              I'm a <span className="text-primary glow-text">Lead Unity Developer</span> with over 8 years of hands-on experience creating polished multiplayer and cross-platform games. I architect real-time reliable systems using tools like Photon, Mirror, and Fish Networking.
+              I'm a <span className="text-primary glow-text">Technical Lead & Architect</span> with over 8 years of experience. My recent work focuses on the intersection of <span className="text-secondary">AI and 3D Automation</span>, where I engineered end-to-end pipelines that transform spatial data into high-fidelity architectural models.
             </p>
             <p className="text-lg text-gray-400 leading-relaxed">
-              Whether it’s a casual title like 8-Ball Pool or advanced AR/VR experiences for <span className="text-secondary">Apple Vision Pro and Meta Quest</span> via Unreal Engine & Unity, I'm driven by the thrill of seamless global connectivity.
+              I bridge the gap between Unity/XR engineering and <span className="text-primary">Full-Stack Web Architecture</span>, ensuring seamless integration between frontend interfaces, AI backends, and 3D engines for next-gen hardware like Apple Vision Pro and Meta Quest.
             </p>
             <p className="text-lg text-gray-400 leading-relaxed">
-              Beyond engineering, I manage Apple App Store and Google Play developer profiles, mentor junior developers, and ensure efficient workflows for timely global releases.
+              Beyond engineering, I lead cross-functional teams, mentor developers, and drive the adoption of AI-assisted tools to accelerate technical delivery and solve "impossible" challenges.
             </p>
           </div>
           <div className="flex-1 glass p-6 rounded-lg font-mono text-xs sm:text-sm border border-gray-800 relative">
@@ -116,12 +116,12 @@ const App = () => {
   "role": "Lead Unity Developer",
   "location": "Ahmedabad, India",
   "expertise": [
-    "Unity 3D / 2D",
-    "Unreal Engine",
+    "AI & 3D Automation",
+    "Full-Stack Architecture",
+    "Unity / Unreal Engine",
     "AR/VR (Vision Pro, Quest)",
     "Multiplayer Architecture",
-    "IT Operations",
-    "People Management"
+    "Technical Leadership"
   ],
   "languages_spoken": [
     "English", "Hindi", "Gujarati"
@@ -139,10 +139,10 @@ const App = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {[
-              { title: "Languages", icon: "💻", items: ["C#", "C/C++", "Java", "PHP", "Node.js"] },
-              { title: "Engines & Tools", icon: "⚙️", items: ["Unity", "Unreal Engine", "Maya", "Photoshop", "JSON", "XML"] },
-              { title: "Networking", icon: "🌐", items: ["Photon Networking", "Firebase", "AdMob", "REST APIs", "Telegram API", "Mirror", "FishNetworking"] },
-              { title: "Soft Skills", icon: "🧠", items: ["Leadership", "Mentorship", "Problem Solving", "Agile Project Management"] },
+              { title: "Frontend & Web", icon: "🌐", items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Redux"] },
+              { title: "AI & 3D Eng", icon: "🤖", items: ["Groq AI", "Blender API", "Python", "Spatial Topology", "Unity", "Unreal"] },
+              { title: "Networking", icon: "📡", items: ["Socket.io", "Photon", "Firebase", "REST APIs", "Mirror", "FishNetworking"] },
+              { title: "Leadership", icon: "🧠", items: ["Technical Architecture", "Mentorship", "Agile", "AI-Assisted Dev"] },
             ].map((skillData, i) => (
               <div key={i} className="glass p-6 rounded-lg border border-gray-800 hover:border-primary/30 transition-all">
                 <div className="text-2xl mb-4">{skillData.icon}</div>
@@ -169,14 +169,14 @@ const App = () => {
             <div className="space-y-6 md:space-y-8">
               {[
                 {
-                  role: "Team Lead / Sr. Unity Game Developer",
+                  role: "Technical Lead / Architect",
                   company: "IndiaNIC Infotech Limited",
                   date: "Aug 2024 — Present",
                   desc: [
-                    "Leading cross-functional team optimizing AR/VR and multiplayer Unity projects.",
-                    "Created demos for Apple Vision Pro and Meta Quest.",
-                    "Built 8-Ball Pool Multiplayer, Ludo Multiplayer, and Chess 2D implementing smart AI.",
-                    "Mentored juniors and adopted AI tools (ChatGPT, Windsurf, Cursor) for productivity."
+                    "Orchestrated a 'Spatial Engine' for AI-driven 3D reconstruction from floorplans using Python and Blender API.",
+                    "Led the architectural modernization of the 'Spin Platform' (React/Next.js), achieving 100% deployment success.",
+                    "Successfully integrated Groq AI for real-time user features and optimized API pipelines.",
+                    "Spearheaded AR/VR R&D for Apple Vision Pro and Meta Quest, focusing on spatial interaction design."
                   ]
                 },
                 {
@@ -269,6 +269,8 @@ const App = () => {
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {[
+                { title: "Spatial Builder", client: "AI-Driven 3D Infrastructure", isHighlight: true, desc: "Automated pipeline for architectural reconstruction using Python and Blender." },
+                { title: "Spin Platform", client: "Next.js Web Application", isHighlight: true, desc: "High-performance platform featuring Groq AI integration and optimized rendering." },
                 { title: "8 Ball Pool Multiplayer", client: "3Plus Games", url: "https://www.3plusgames.com" },
                 { title: "Kalash Nikavo (Mini Militia)", client: "3Plus Games", url: "https://www.3plusgames.com" },
                 { title: "Sweep It Poker", client: "Gala Games", isHighlight: true },
